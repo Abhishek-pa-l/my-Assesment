@@ -8,6 +8,8 @@ sap.ui.define(
 
     return BaseController.extend("com.sap.myassesments.controller.Assesmentpage", {
       onInit: function () {
+        var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+        oRouter.getRoute("RouteView2").attachMatched(this._onRouteMatched, this);
         let qDropdown = [
           {
             "question": "Are there any personal relationships between key personnel of your company or its Affiliates, and KPO Key Personnel?",
@@ -108,6 +110,14 @@ sap.ui.define(
           return oItemPromise;
         }
       },
+      goBack : function(){
+        this.getOwnerComponent().getRouter().navTo("RouteView1");
+      },
+      _onRouteMatched: function(oEvent) {
+        var sAssessmentType = oEvent.getParameter("arguments").value1;
+        var oPage = this.getView().byId("page2");
+        oPage.setTitle(sAssessmentType);
+    }
     });
   }
 );

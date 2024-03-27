@@ -13,7 +13,7 @@
     xmlns:semantic="sap.f.semantic"
     xmlns:u="sap.ui.unified"
 >
-    <Page id="page2">
+    <Page id="page2" title="{AssessmentType}">
         <content>
          <Toolbar id="_IDGenToolbar2">
                             <ToolbarSpacer id="_IDGenToolbarSpacer4i9" />
@@ -327,12 +327,13 @@
             <OverflowToolbar id="_IDGenOverflowToolbar2">
                 <ToolbarSpacer id="_IDGenToolbarSpacer4" />
                 
-                <Button id="_IDGenButton13" text="Save" />
+                <Button id="_IDGenButton13" text="Save As Draft" type="Accept" />
                 <Button
                     id="_IDGenButton3"
                     text="Submit To Approval"
+                    type="Emphasized"
                 />
-                            <Button id="_IDGenButton5" text="Cancel" />
+                            <Button id="_IDGenButton5" text="Cancel" type="Negative" press="goBack" />
             </OverflowToolbar>
         </footer>
     </Page>

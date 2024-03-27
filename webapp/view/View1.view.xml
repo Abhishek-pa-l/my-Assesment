@@ -53,6 +53,8 @@
                     >
                         <cells>
                             <Text text="{jModel>AssesmentTitle}" />
+                            
+                            
                             <Text text="{jModel>AssesmentType}" />
                             <Text text="{jModel>ExpireOn}" />
                             <ObjectStatus text="{jModel>Status}" state="{path: 'jModel>Status', formatter: '.getStatusState'}" />

@@ -13,19 +13,19 @@ function (Controller, JSONModel, ValueState) {
                     "AssesmentTitle": "Title1",
                     "AssesmentType": "Simple pre-qualification",
                     "ExpireOn": "1/12/2024",
-                    "Status": "pending",
+                    "Status": "Pending",
                 },
                 {
                     "AssesmentTitle": "Title2",
                     "AssesmentType": "EDD",
                     "ExpireOn": "1/12/2024",
-                    "Status": "complete",
+                    "Status": "Complete",
                 },
                 {
                     "AssesmentTitle": "Title3",
                     "AssesmentType": "Integrity Assessment",
                     "ExpireOn": "1/12/2024",
-                    "Status": "pending",
+                    "Status": "Pending",
                 }, 
             ];
 
@@ -33,11 +33,16 @@ function (Controller, JSONModel, ValueState) {
             this.getView().setModel(jModel, "jModel");
         },
 
-        onTakeAction: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteView2");
+        onTakeAction: function(oEvent) {
+            debugger
+            var oSelectedItem = oEvent.getSource().getParent().getBindingContext("jModel").getObject();
+            var sAssessmentType = oSelectedItem.AssesmentType;
+            this.getOwnerComponent().getRouter().navTo("RouteView2", {
+                value1: sAssessmentType
+            });
         },
         getStatusState: function (sStatus) {
-            return sStatus === "pending" ? "Error" : "Success";
+            return sStatus === "Pending" ? "Error" : "Success";
         },
        
     });
