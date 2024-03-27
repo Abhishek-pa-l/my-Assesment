@@ -1,0 +1,66 @@
+<mvc:View controllerName="com.sap.myassesments.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+
+        <Table
+                items="{jModel>/}"
+                id="t1"
+                class=""
+            >
+                <!-- <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbarUpdated">
+                        <Button text="Create New Question" type="Emphasized" press="onCreateQuestion" />
+                    </OverflowToolbar>
+                </headerToolbar> -->
+                <columns>
+                    <Column id="c1">
+                        <Text
+                            text="Assessment Title"
+                            id="txt1"
+                        />
+                    </Column>
+                    <Column id="c2">
+                        <Text
+                            text="Assessment Type"
+                            id="txt2"
+                        />
+                    </Column>
+                    <Column id="c3">
+                        <Text
+                            text="Expire on"
+                            id="txt3"
+                        />
+                    </Column>
+                    <Column id="c4">
+                        <Text
+                            text="Status"
+                            id="txt4"
+                        />
+                    </Column>
+                    <Column id="c5">
+                        <Text
+                            text="Action"
+                            id="txt5"
+                        />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        id="_IDGenColumnListItem1"
+                        vAlign="Middle"
+                    >
+                        <cells>
+                            <Text text="{jModel>AssesmentTitle}" />
+                            <Text text="{jModel>AssesmentType}" />
+                            <Text text="{jModel>ExpireOn}" />
+                            <ObjectStatus text="{jModel>Status}" state="{path: 'jModel>Status', formatter: '.getStatusState'}" />
+                            <Button text="Take Action" press="onTakeAction"></Button>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
